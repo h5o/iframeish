@@ -1,4 +1,5 @@
 # iframeish
+[![Build Status](https://travis-ci.org/h5o/iframeish.svg?branch=master)](https://travis-ci.org/h5o/iframeish)
 Helps work with iframes
 
 ## todo
@@ -11,5 +12,5 @@ Helps work with iframes
 
 ## done
 
-* `Iframeish(cb)`, where `cb` is a `function nodeback(err, result)`, called after `onload`, 
+* `Iframeish([opts, ] cb)`, where `cb` is a `function nodeback(err, result)`, called after `onload`, 
    where `result` has `iframe` and `document` properties.

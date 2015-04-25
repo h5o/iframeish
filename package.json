@@ -4,7 +4,8 @@
   "description": "Helps work with iframes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "in-publish && [ ! -z $TRAVIS_TAG ] && ls dist/Iframeish.min.js || in-install",
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,26 @@
   "bugs": {
     "url": "https://github.com/h5o/iframeish/issues"
   },
-  "homepage": "https://github.com/h5o/iframeish#readme"
+  "homepage": "https://github.com/h5o/iframeish#readme",
+  "devDependencies": {
+    "buster": "0.7.x",
+    "buster-extension-iife": "0.1.x",
+    "grunt": "0.4.x",
+    "grunt-browserify": "3.x",
+    "grunt-bump": "0.3.x",
+    "grunt-buster": "0.3.x",
+    "grunt-checkbranch": "1.x",
+    "grunt-checkpending": "1.x",
+    "grunt-cli": "0.1.x",
+    "grunt-contrib-clean": "0.6.x",
+    "grunt-contrib-uglify": "0.9.x",
+    "grunt-contrib-watch": "0.6.x",
+    "grunt-open": "0.2.x",
+    "in-publish": "1.x",
+    "jsdom": "5.x",
+    "jsdom-compat": "1.x",
+    "load-grunt-tasks": "3.x",
+    "phantomjs": "1.9.x",
+    "time-grunt": "1.x"
+  }
 }
