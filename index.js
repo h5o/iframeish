@@ -6,7 +6,7 @@ function Iframeish(opts, cb) {
 	var renderTo = opts.renderTo || document.body;
 
 	var iframe = document.createElement("iframe");
-	iframe.style.border = "none";
+	iframe.style.border = "none"; // @todo: does this really belong here?
 
 	var loaded = false;
 	var onLoad = function () {
