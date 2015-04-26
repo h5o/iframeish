@@ -11,3 +11,11 @@ Iframeish(function (err, result) {
    console.log(result.document);
 });
 ```
+
+```js
+Iframeish({ renderTo: document.body.appendChild(document.createElement('div')) }, function (err, result) {
+   // executes after onload
+   console.log(result.iframe);
+   console.log(result.document);
+});
+```
