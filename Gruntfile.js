@@ -16,11 +16,11 @@ module.exports = function (grunt) {
 		"_watch": {
 			autoBuild: {
 				files: ["index.js", "src/**"],
-				tasks: ["default", "buster:local:test", "buster:jsdom:test"]
+				tasks: ["default", "buster:local:test", "test-jsdom"]
 			},
 			autoTest: {
 				files: ["test/**"],
-				tasks: ["buster:local:test", "buster:jsdom:test"]
+				tasks: ["buster:local:test", "test-jsdom"]
 			}
 		},
 		buster: {
@@ -34,6 +34,12 @@ module.exports = function (grunt) {
 				"test": {
 					"reporter": "specification",
 					"config-group": "jsdom"
+				}
+			},
+			"jsdom-compat": {
+				"test": {
+					"reporter": "specification",
+					"config-group": "jsdom-compat"
 				}
 			}
 		},
@@ -74,7 +80,7 @@ module.exports = function (grunt) {
 	);
 	grunt.registerTask("test-phantom", ["buster:local:server", "buster:local:phantomjs", "buster:local:test"]);
 	grunt.registerTask("test-local", ["buster:local:server", "buster:local:phantomjs", "open:capture-browser", "buster:local:test"]);
-	grunt.registerTask("test-jsdom", ["buster:jsdom:test"]);
+	grunt.registerTask("test-jsdom", !process.version.indexOf("v0.10") ? ["buster:jsdom-compat:test"] : ["buster:jsdom:test", "buster:jsdom-compat:test"]);
 	grunt.registerTask("watch", ["buster:local:server", "buster:local:phantomjs", "open:capture-browser", "_watch"]);
 
 	grunt.registerTask("release", function () {

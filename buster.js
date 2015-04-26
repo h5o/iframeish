@@ -13,7 +13,7 @@ config["browser"] = {
 		require("buster-extension-iife")
 	],
 	libs: [
-		"test/helpers/*.js"
+		"test/helpers/globals.js"
 	]
 };
 
@@ -24,6 +24,19 @@ config["jsdom"] = {
 		"test/*.test.js"
 	],
 	libs: [
-		"test/helpers/*.js"
+		"test/helpers/globals.js",
+		"test/helpers/jsdom.js"
+	]
+};
+
+config["jsdom-compat"] = {
+	rootPath: ".",
+	environment: "node",
+	tests: [
+		"test/*.test.js"
+	],
+	libs: [
+		"test/helpers/globals.js",
+		"test/helpers/jsdom-compat.js"
 	]
 };
