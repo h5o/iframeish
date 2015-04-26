@@ -1,6 +1,6 @@
 {
   "name": "iframeish",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Helps work with iframes",
   "main": "index.js",
   "scripts": {
